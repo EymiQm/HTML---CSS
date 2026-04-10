@@ -1,161 +1,151 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Inicio FMS</title>
+    <meta charset="UTF-8">
+    <title>Inicio FMS</title>
+    <style>
+        body { margin: 0; font-family: Arial, sans-serif; background: #1a1a2e; color: white; overflow: hidden; }
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
+        /* BARRA SUPERIOR */
+        .header {
+            background: #f70404;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            height: 40px;
+        }
+        .logo { font-size: 24px; font-weight: bold; }
+        .btn {
+            background: #e9d204;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn:hover { background: black; color: white; }
 
-/* BARRA SUPERIOR */
-.container{
-    padding: 200px;
-    display: flex;
-    gap: 20PX;
-}
-.header {
-  background: #f70404;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-}
+        /* CUERPO PRINCIPAL */
+        .main { display: flex; height: calc(100vh - 70px); }
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-}
+        /* MENÚ IZQUIERDO */
+        .sidebar {
+            width: 200px;
+            background: #111122;
+            padding: 20px;
+        }
+        .sidebar p { margin: 15px 0; cursor: pointer; border-bottom: 1px solid #333; padding-bottom: 5px; }
 
-/* BOTÓN ARRIBA */
-.btn {
-  background: #e9d204;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-}
+        /* CONTENEDOR DEL CARRUSEL */
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1a1a2e, #2702f7);
+        }
 
-.btn:hover {
-  background: black;
-  color: white;
-}
+        .carrusel {
+            position: relative;
+            width: 500px;
+            height: 600px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 5px solid #e9d204;
+        }
 
-/* CONTENEDOR GENERAL */
-.main {
-  display: flex;
-  height: calc(100vh - 70px);
-}
+        .carrusel-contenedor {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
 
-/* MENÚ IZQUIERDO */
-.sidebar {
-  width: 200px;
-  background: #1a1a2e;
-  color: white;
-  padding: 20px;
-}
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+        }
 
-.sidebar p {
-  margin: 15px 0;
-  cursor: pointer;
-}
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-/*  CONTENIDO */
-.content {
-  flex: 1;
-  background: linear-gradient(135deg, #1a1a2e, #2702f7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
-
-.box {
-  width: 60%;
-  height: 300px;
-  border: 3px solid white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.card {
-    background: #e9d204;
-    border-radius: 15px;
-    height: 290px;
-    width: 300px;
-    padding: 20px;
-    text-align: center;
-    transition: 0.3s;
-    }
-
-
-.card img {
-width: 100%;
-height: 300px;
-border-radius: 10px;
-    }
-
-
-}
-</style>
-
+        /* BOTONES DENTRO DEL CARRUSEL */
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.6);
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 20px;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+    </style>
 </head>
-
 <body>
 
-<!-- PARTE DE ARRIBA -->
-<div class="header">
-  <div class="logo">FMS 🔥</div>
+    <div class="header">
+        <div class="logo">FMS 🔥</div>
+        <!-- Este botón abre la otra página en la misma pestaña -->
+        <a href="freestylers.html">
+            <button class="btn">Ver Freestylers</button>
+        </a>
+    </div>
 
-  <a href="freestylers.html">
-    <button class="btn">Ver Freestylers</button>
-  </a>
-</div>
+    <div class="main">
+        <div class="sidebar">
+            <p>Inicio</p>
+            <p>Batallas</p>
+            <p>Ranking</p>
+            <p>Eventos</p>
+        </div>
 
-<!-- CUERPO -->
-<div class="main">
+        <div class="container">
+            <div class="carrusel">
+                <div class="carrusel-contenedor">
+                    <!-- Slide 1 -->
+                    <div class="slide" id="f1">
+                        <img src="https://img.redbull.com/images/c_crop,x_2809,y_0,h_3907,w_2344/c_fill,w_500,h_833/q_auto,f_auto/redbullcom/2023/7/31/un4t5o3tjml5c8kzpiz2/chuty-mnak-final-nacional-valencia-batalla-2023">
+                        <a href="#f4" class="nav-btn prev">❮</a>
+                        <a href="#f2" class="nav-btn next">❯</a>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="slide" id="f2">
+                        <img src="https://static.wikia.nocookie.net/rap/images/a/a0/AczinoInter2022.jpg/revision/latest/scale-to-width/360?cb=20221212051143&path-prefix=es">
+                        <a href="#f1" class="nav-btn prev">❮</a>
+                        <a href="#f3" class="nav-btn next">❯</a>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="slide" id="f3">
+                        <img src="https://i.ytimg.com/vi/XS_lBs5jH4I/hq720.jpg">
+                        <a href="#f2" class="nav-btn prev">❮</a>
+                        <a href="#f4" class="nav-btn next">❯</a>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="slide" id="f4">
+                        <img src="https://cdn.fms.tv/wp-content/uploads/2023/05/LOKILLO.png">
+                        <a href="#f3" class="nav-btn prev">❮</a>
+                        <a href="#f1" class="nav-btn next">❯</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  <!-- MENÚ IZQUIERDO -->
-  <div class="sidebar">
-    <p>Inicio</p>
-    <p>Batallas</p>
-    <p>Ranking</p>
-    <p>Eventos</p>
-  </div>
+</body>
+</html>
 
-  <!-- 🟦 CONTENIDO -->
- <div class="container">
-
-  <div class="card">
-    <img src="https://img.redbull.com/images/c_crop,x_2809,y_0,h_3907,w_2344/c_fill,w_500,h_833/q_auto,f_auto/redbullcom/2023/7/31/un4t5o3tjml5c8kzpiz2/chuty-mnak-final-nacional-valencia-batalla-2023">
-    <h2>Chuty</h2>
-    <p>Uno de los freestylers más dominantes de la historia de la FMS España.</p>
-  </div>
-
-  <div class="card">
-    <img src="https://static.wikia.nocookie.net/rap/images/a/a0/AczinoInter2022.jpg/revision/latest/scale-to-width/360?cb=20221212051143&path-prefix=es">
-    <h2>Aczino</h2>
-    <p>Freestyler mexicano reconocido a nivel mundial por su agresividad y flow.</p>
-  </div>
-
-  <div class="card">
-    <img src="https://i.ytimg.com/vi/XS_lBs5jH4I/hq720.jpg">
-    <h2>Skone</h2>
-    <p>Freestyler español con gran creatividad y puesta en escena.</p>
-  </div>
-
-  <div class="card">
-    <img src="https://cdn.fms.tv/wp-content/uploads/2023/05/LOKILLO.png">
-    <h2>Loki</h2>
-    <p>Freestyler colombiano con gran impacto en la escena nacional.</p>
-  </div>
-
-</div>
 
 </body>
 </html>
